@@ -1,13 +1,16 @@
-TUIO SIMULATOR
---------------
+# TUIO SIMULATOR
+This repository is a fork of [https://github.com/mkalten/TUIO11_Simulator](https://github.com/mkalten/TUIO11_Simulator) and contains the following main changes:
+* Dependencies of this project are now managed by Maven (see [pom.xml](./pom.xml)).
+* The software is now using Spring Framework for easy configurable interchangeability of implementation classes during runtime. 
+* It is now possible to send TUIO messages via WebSocket instead of UDP by configuring `tuiosim.useWebsocket=true` in `application.properties`.
+
 Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
 This software is part of reacTIVision, an open source fiducial
 tracking and multi-touch framework based on computer vision. 
 
 http://reactivision.sourceforge.net/
 
-Introduction:
--------------
+## Introduction:
 This Simulator can be used by application developers for the 
 design of tangible user interfaces based on the TUIO framework,
 without the actual need of a real table/camera setup in an
@@ -23,24 +26,20 @@ more information on this protocol.
 Additionally the simulator provides a multi-touch finger tracking
 simulation, which is also included in the TUIO specification.
 
-Application Start:
-------------------
+## Application Start:
 This application is based on the Java programming language.
-It needs a Java Runtime Environment version 1.6 or later 
+It needs a Java Runtime Environment version 1.8 or later 
 installed on your system in order to function properly.
 See: http://www.oracle.com/technetwork/java/javase/downloads/
 
-You can start the application by double clicking TUIOSimulator.jar.
-Alternativly you can call "java -jar TUIOSimulator.jar" from the command line.
+You can start the application with `mvn spring-boot:run`.  
+Consider having Maven 3.8+ installed.
 
 The default TUIO host is 127.0.0.1 (localhost)
 The default TUIO port is 3333.
+You can change it in [application.properties](src/main/resources/application.properties).
 
-If you want to send TUIO messages to an alternative host or port,
-you can start the application with -host and -port command line options.
-
-Handling:
----------
+## Handling:
 * Dragging objects onto the white table surface will make them visible
   for the "virtual sensor". An activated object is marked with a green frame.
   The corresponding object ID number is written onto the object surface.
@@ -71,16 +70,14 @@ Handling:
 
 * Enabling "Verbose" in the "File" menu, will print TUIO events to the console. 
 
-Session Configuration:
-----------------------
+## Session Configuration:
 * see resources/config.xml for an example
 * generic object types:
   name, shape, colour, description
 * the current object list:
   type, faces, position, angle
 
-References:
------------
+## References:
 This application uses the JavaOSC OpenSound Control library.
-See http://www.illposed.com/software/javaosc.html
+See [http://www.illposed.com/software/javaosc.html](http://www.illposed.com/software/javaosc.html)
 for more information and the source code.
