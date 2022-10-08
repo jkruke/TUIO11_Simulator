@@ -17,13 +17,13 @@
  */
 
 package com.illposed.osc;
+
+import com.illposed.osc.utility.*;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.GregorianCalendar;
 import java.util.Vector;
-
-import com.illposed.osc.utility.*;
 
 public class OSCBundle extends OSCPacket {
 

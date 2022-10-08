@@ -1,4 +1,4 @@
-/*
+package org.tuio.simulator.ui;/*
     TUIO 1.1 Simulator - Simulation.java
     http://www.tuio.org/
 
@@ -19,17 +19,22 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-import java.util.*;
-import java.awt.*;
-import java.awt.geom.*;
-import java.awt.event.*;
-import javax.swing.*;
 import com.illposed.osc.*;
+import java.awt.*;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.geom.*;
+import java.util.Enumeration;
+import java.util.Vector;
+import javax.swing.*;
+import org.tuio.simulator.ApplicationContextUtils;
 
 public class Simulation extends JPanel implements Runnable {
 
 	private Manager manager;
-	private OSCPortOut oscPort;
+	private IOSCPortOut oscPort;
 
 	private int currentFrame = 0;	
 	private long lastFrameTime = -1;
@@ -73,12 +78,16 @@ public class Simulation extends JPanel implements Runnable {
 	
 	MouseEvent lastPressedEvent;
 	
-	public Simulation(Manager manager, String host, int port) {
+	public Simulation(Manager manager) {
 		super(true);
-		this.manager=manager;		
+		this.manager=manager;
 
-		try { oscPort = new OSCPortOut(java.net.InetAddress.getByName(host),port); }
-		catch (Exception e) { oscPort = null; }
+		try {
+			oscPort = ApplicationContextUtils.getApplicationContext().getBean(IOSCPortOut.class);
+		} catch (Exception e) {
+			System.err.println("oscPort is null");
+			oscPort = null;
+		}
 		
 
 		try { sourceString = "tsim@"+java.net.InetAddress.getLocalHost().getHostAddress(); }

@@ -1,4 +1,4 @@
-/*
+package org.tuio.simulator.ui;/*
 	TUIO 1.1 Simulator - Tangible.java
 	http://www.tuio.org/
  
@@ -20,8 +20,9 @@
 */
 
 import java.awt.*;
-import java.util.*;
-import java.awt.geom.*;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Area;
+import java.awt.geom.Point2D;
 
 public class Tangible {
 
@@ -82,8 +83,8 @@ public class Tangible {
 		center = new Point2D.Float((float)(center.getX()+dx),(float)(center.getY()+dy));
 		
 		// normalized distances
-		float nx = dx/TuioSimulator.width;
-		float ny = dy/TuioSimulator.height;
+		float nx = dx/ TuioSimulator.width;
+		float ny = dy/ TuioSimulator.height;
 		
 		// time difference in seconds
 		long currentTime = System.currentTimeMillis();

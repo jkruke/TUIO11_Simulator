@@ -17,10 +17,9 @@
 
 package com.illposed.osc;
 
+import com.illposed.osc.utility.*;
 import java.util.Enumeration;
 import java.util.Vector;
-
-import com.illposed.osc.utility.*;
 
 public class OSCMessage extends OSCPacket {
 

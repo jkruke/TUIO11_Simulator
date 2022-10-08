@@ -1,4 +1,4 @@
-/*
+package org.tuio.simulator.ui;/*
 	TUIO 1.1 Simulator - Finger.java
 	http://www.tuio.org/
 	
@@ -20,7 +20,7 @@
 */
 
 import java.awt.*;
-import java.util.*;
+import java.util.Vector;
 
 public class Finger {
 

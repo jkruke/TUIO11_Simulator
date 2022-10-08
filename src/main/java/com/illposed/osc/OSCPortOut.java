@@ -29,11 +29,10 @@
 
 package com.illposed.osc;
 
-import java.net.*;
 import java.io.IOException;
-import com.illposed.osc.utility.OSCByteArrayToJavaConverter;
+import java.net.*;
 
-public class OSCPortOut extends OSCPort {
+public class OSCPortOut extends OSCPort implements IOSCPortOut {
 
 	protected InetAddress address;
 
@@ -67,9 +66,7 @@ public class OSCPortOut extends OSCPort {
 		this(InetAddress.getLocalHost(), defaultSCOSCPort);
 	}
 	
-	/**
-	 * @param aPacket OSCPacket
-	 */
+	@Override
 	public void send(OSCPacket aPacket) throws IOException {
 		byte[] byteArray = aPacket.getByteArray();
 		DatagramPacket packet = 

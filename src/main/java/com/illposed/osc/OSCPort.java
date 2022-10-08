@@ -14,8 +14,7 @@
 
 package com.illposed.osc;
 
-import java.net.*;
-import java.io.IOException;
+import java.net.DatagramSocket;
 
 public abstract class OSCPort {
 
@@ -33,7 +32,7 @@ public abstract class OSCPort {
 	public static final int defaultSCLangOSCPort = 57120;
 	
 	/**
-	 * @see java.lang.Object#finalize()
+	 * @see Object#finalize()
 	 */
 	protected void finalize() throws Throwable {
 		super.finalize();

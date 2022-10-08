@@ -28,10 +28,12 @@
 
 package com.illposed.osc;
 
-import java.net.*;
-import java.io.IOException;
 import com.illposed.osc.utility.OSCByteArrayToJavaConverter;
 import com.illposed.osc.utility.OSCPacketDispatcher;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
 
 public class OSCPortIn extends OSCPort implements Runnable {
 
@@ -51,7 +53,7 @@ public class OSCPortIn extends OSCPort implements Runnable {
 	}
 
 	/**
-	 * @see java.lang.Runnable#run()
+	 * @see Runnable#run()
 	 */
 	public void run() {
 		byte[] buffer = new byte[1536];
@@ -62,7 +64,7 @@ public class OSCPortIn extends OSCPort implements Runnable {
 				socket.receive(packet);
 				OSCPacket oscPacket = converter.convert(buffer, packet.getLength());
 				dispatcher.dispatchPacket(oscPacket);
-			} catch (java.net.SocketException e) {
+			} catch (SocketException e) {
 				if (isListening) e.printStackTrace();
 			} catch (IOException e) {
 				if (isListening) e.printStackTrace();

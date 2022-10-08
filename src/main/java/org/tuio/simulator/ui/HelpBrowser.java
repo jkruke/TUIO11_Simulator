@@ -1,4 +1,4 @@
-/*
+package org.tuio.simulator.ui;/*
 	TUIO 1.1 Simulator - HelpBrowser.java
 	http://www.tuio.org/
  
@@ -20,10 +20,9 @@
 */
 
 import java.awt.*;
-import java.net.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.border.*;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
 
 public class HelpBrowser extends JFrame implements HyperlinkListener {
 

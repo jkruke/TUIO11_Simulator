@@ -1,4 +1,4 @@
-/*
+package org.tuio.simulator.ui;/*
 	TUIO 1.1 Simulator - Manager.java
 	http://www.tuio.org/
  
@@ -20,18 +20,16 @@
 */
 
 import java.awt.*;
-import java.util.*;
-import java.io.*;
-import javax.swing.*;
-
 import java.io.File;
-import org.w3c.dom.Document;
-import org.w3c.dom.*;
-
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.util.Hashtable;
+import java.util.StringTokenizer;
+import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
-import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException; 
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class Manager {
 
@@ -53,7 +51,7 @@ public class Manager {
 	public boolean inverta = false;
 	
 	public Hashtable<Integer,Tangible> objectList = new Hashtable<Integer,Tangible>();
-	public Hashtable<Integer,Finger> cursorList = new Hashtable<Integer,Finger>();
+	public Hashtable<Integer, Finger> cursorList = new Hashtable<Integer, Finger>();
 	public Hashtable<String,TangibleType> objectType = new Hashtable<String,TangibleType>();	
 	private JFrame parent;
 	

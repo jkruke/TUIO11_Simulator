@@ -1,4 +1,4 @@
-/*
+package org.tuio.simulator.ui;/*
     TUIO 1.1 Simulator - TuioSimulator.java
     http://www.tuio.org/
 
@@ -28,38 +28,13 @@ public class TuioSimulator {
 	public static int width = 800;
 	public static int height = 600;
 	
-	public static void main(String[] argv) {
+	public static void start(String config) {
 	
-		String host = "127.0.0.1";
-		int port = 3333;
-		String config=null;
-		
-		for (int i=0;i<argv.length;i++) {
-			if (argv[i].equalsIgnoreCase("-host")) {
-				try { host = argv[i+1]; } catch (Exception e) {}
-				i++;
-			} else if (argv[i].equalsIgnoreCase("-port")) {
-				try { port = Integer.parseInt(argv[i+1]); } catch (Exception e) {}
-				i++;
-			} else if (argv[i].equalsIgnoreCase("-config")) {
-				try { config = argv[i+1]; } catch (Exception e) {}
-				i++;
-			} else {
-				System.out.println("TuioSimulator options:");
-				System.out.println("\t-host\ttarget IP");
-				System.out.println("\t-port\ttarget port");
-				System.out.println("\t-config\tconfig file");
-				System.exit(0);
-			}
-		}
-
-		System.out.println("sending TUIO messages to "+host+":"+port);
-
 		JFrame app = new JFrame();
 		app.setTitle("TUIO Simulator");
 
 		final Manager manager = new Manager(app,config);
-		final Simulation simulation = new Simulation(manager,host,port);
+		final Simulation simulation = new Simulation(manager);
 		//Thread simulationThread = new Thread(simulation);
 		//simulationThread.start();
 
