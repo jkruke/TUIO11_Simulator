@@ -1,3 +1,7 @@
+This repository is a fork of [https://github.com/jkruke/TUIO11_Simulator](https://github.com/jkruke/TUIO11_Simulator) and adds:
+* a release jar (runs with java jre 8+)
+* allows access from all ports of localhost to the websocket
+
 # TUIO SIMULATOR
 This repository is a fork of [https://github.com/mkalten/TUIO11_Simulator](https://github.com/mkalten/TUIO11_Simulator) and contains the following main changes:
 * Dependencies of this project are now managed by Maven (see [pom.xml](./pom.xml)).
